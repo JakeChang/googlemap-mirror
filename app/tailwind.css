@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: oklch(0.7 0 0 / 0.3);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.6 0 0 / 0.5);
+}
+
+/* Smooth transitions for cards */
+.result-card-enter-active,
+.result-card-leave-active {
+  transition: all 0.3s ease;
+}
+.result-card-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Map container polish */
+.leaflet-container {
+  font-family: inherit;
+}
+.custom-marker {
+  background: transparent;
+  border: none;
+}
+.leaflet-popup {
+  z-index: 1000;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+.leaflet-popup-tip {
+  box-shadow: none;
+}
+.leaflet-pm-toolbar .leaflet-pm-icon-rectangle {
+  background-size: 20px 20px;
+}
+
+/* Glass morphism helper */
+.glass-panel {
+  background: oklch(1 0 0 / 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* All buttons show pointer cursor on hover */
+button, .btn, a.btn, [role="button"] {
+  cursor: pointer;
+}
+
+/* Pulse animation for searching */
+@keyframes search-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-search-pulse {
+  animation: search-pulse 2s ease-in-out infinite;
+}
